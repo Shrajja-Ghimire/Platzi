@@ -58,14 +58,12 @@ const ShowProduct = () => {
                     ${data.price}
                   </p>
 
-                  <Link to="/cart">
-                    <button
-                      onClick={() => dispatch(addToCart(data))}
-                      className=" border-1 px-6 py-2 rounded-lg  bg-gradient-to-r from-amber-500 to-amber-800 text-white transition"
-                    >
-                      Add to Cart
-                    </button>
-                  </Link>
+                  <button
+                    onClick={() => dispatch(addToCart(data))}
+                    className=" border-1 px-6 py-2 rounded-lg  bg-gradient-to-r from-amber-500 to-amber-800 text-white transition"
+                  >
+                    Add to Cart
+                  </button>
                 </span>
               </div>
             </div>

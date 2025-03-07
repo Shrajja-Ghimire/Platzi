@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import Searchbar from "../searchbar";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsRequest } from "../../../redux/actions/product";
-
+import { addToCart } from "../../../redux/actions/cart";
 const ProductList = () => {
   // const [products, setProducts] = useState([]);
   //const [isLoading, setIsLoading] = useState(false);
@@ -18,22 +18,9 @@ const ProductList = () => {
     dispatch(fetchProductsRequest()); // Fetch products from Redux
   }, [dispatch]);
 
-  // const getproduct = async () => {
-  //   try {
-  //     setIsLoading(true);
-  //     const res = await axios.get(
-  //       "https://api.escuelajs.co/api/v1/products?limit=20&offset=0"
-  //     );
-  //     setProducts(res.data);
-  //     setIsLoading(false);
-  //   } catch (error) {
-  //     console.log("Error fetching product:", error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getproduct();
-  // }, []);
+  const handleAddToCart = (data) => {
+    dispatch(addToCart(data)); // Dispatch addToCart action
+  };
 
   const filteredProducts = products.filter((product) => {
     return product.title.toLowerCase().includes(search.toLowerCase());
@@ -61,26 +48,29 @@ const ProductList = () => {
                     src={data.images[0]}
                     alt="product image"
                   />
-                  <div className="px-5 pb-5">
-                    <h5 className=" font-semibold tracking-tight text-gray-900 dark:text-white">
-                      {data.title}
-                    </h5>
-
-                    <p className="tracking-tight text-gray-900 dark:text-white">
-                      {data.category.name}
-                    </p>
-                    <span className="flex gap-5 mt-5">
-                      <p className="text-2xl font-bold text-gray-900 dark:text-white">
-                        ${data.price}
-                      </p>
-                      <Link to="/cart">
-                        <button className=" border-1 px-6 py-2 rounded-lg  bg-gradient-to-r from-amber-500 to-amber-800 text-white transition">
-                          Add to Cart
-                        </button>
-                      </Link>
-                    </span>
-                  </div>
                 </Link>
+                <div className="px-5 pb-5">
+                  <h5 className=" font-semibold tracking-tight text-gray-900 dark:text-white">
+                    {data.title}
+                  </h5>
+
+                  <p className="tracking-tight text-gray-900 dark:text-white">
+                    {data.category.name}
+                  </p>
+
+                  <span className="flex gap-5 mt-5">
+                    <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                      ${data.price}
+                    </p>
+
+                    <button
+                      onClick={() => handleAddToCart(data)}
+                      className=" border-1 px-6 py-2 rounded-lg  bg-gradient-to-r from-amber-500 to-amber-800 text-white transition"
+                    >
+                      Add to Cart
+                    </button>
+                  </span>
+                </div>
               </div>
             );
           })

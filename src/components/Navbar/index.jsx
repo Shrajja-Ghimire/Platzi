@@ -5,10 +5,13 @@ import "../../index.css";
 import { FaCartPlus } from "react-icons/fa";
 import { MdMenu } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 //component first
 const Navbar = () => {
   const [open, setOpen] = useState(false); //mobile
+
+  const cartLength = useSelector((state) => state.cart.cartItems?.length);
 
   return (
     <div className="sticky top-0  shadow-md z-50 bg-white p-5 min-h-[50px] max-h-[70px] flex justify-between items-center border-b border-gray-200">
@@ -62,7 +65,7 @@ const Navbar = () => {
           <div className="relative flex items-center justify-center w-10 h-10 sm:w-8 sm:h-8">
             <FaCartPlus className="w-6 h-6 sm:w-5 sm:h-5" />
             <span className="absolute top-0 right-0 transform translate-x-1 -translate-y-1 bg-red-600 text-white text-xs sm:text-[10px] w-5 h-5 sm:w-4 sm:h-4 rounded-full flex justify-center items-center">
-              0
+              {cartLength}
             </span>
           </div>
         </NavLink>
