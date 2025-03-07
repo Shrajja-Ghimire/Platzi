@@ -28,12 +28,7 @@ const productReducer = (state = initialState, action) => {
         isLoading: false,
         error: action.payload,
       };
-    // case "DELETE_PRODUCT_REQUEST":
-    //   return {
-    //     ...state,
-    //     data: null,
-    //     error: null,
-    //   };
+
     default:
       return state;
   }

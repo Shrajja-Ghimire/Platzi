@@ -8,26 +8,11 @@ const Category = () => {
   // const [category, setCategory] = useState([]);
 
   const dispatch = useDispatch();
-  const { category } = useSelector((state) => state.product);
+  const { category } = useSelector((state) => state.category);
 
   useEffect(() => {
     dispatch(fetchCategoryRequest()); // Fetch products from Redux
   }, [dispatch]);
-
-  // const getcategory = async () => {
-  //   try {
-  //     const res = await axios.get(
-  //       "https://api.escuelajs.co/api/v1/categories?limit=5"
-  //     );
-  //     setCategory(res.data);
-  //   } catch (error) {
-  //     console.log("Error fetching categories:", error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getcategory();
-  // }, []);
 
   return (
     <>

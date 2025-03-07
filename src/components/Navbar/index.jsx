@@ -8,7 +8,7 @@ import { FaUser } from "react-icons/fa";
 
 //component first
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); //mobile
 
   return (
     <div className="sticky top-0  shadow-md z-50 bg-white p-5 min-h-[50px] max-h-[70px] flex justify-between items-center border-b border-gray-200">
@@ -67,7 +67,7 @@ const Navbar = () => {
           </div>
         </NavLink>
 
-        <NavLink to="/login">
+        <NavLink to="/register">
           <FaUser />
         </NavLink>
       </div>

@@ -14,7 +14,3 @@ export const fetchProductsFailure = (error) => ({
   type: "FETCH_PRODUCTS_FAILURE",
   payload: error,
 });
-
-// export const deleteProductRequest = () => ({
-//   type: "DELETE_PRODUCT_REQUEST",
-// });

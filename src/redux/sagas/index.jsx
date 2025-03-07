@@ -2,6 +2,7 @@
 import { takeEvery, put, call } from "redux-saga/effects";
 import * as actions from "../actions/product";
 import * as action from "../actions/category";
+
 // Simulate an API call
 const fetchProductsFromAPI = async () => {
   try {
@@ -24,6 +25,7 @@ function* fetchProducts() {
   }
 }
 
+//fetch category
 const fetchCategoryFromAPI = async () => {
   try {
     const response = await fetch(
