@@ -3,10 +3,13 @@ import axios from "axios";
 
 import { Link } from "react-router";
 import { FaArrowRight } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/actions/cart";
 
 //third
 const ShowProduct = () => {
   const [showProduct, setShowProduct] = useState([]);
+
   const showproduct = async () => {
     try {
       const res = await axios.get(
@@ -20,6 +23,9 @@ const ShowProduct = () => {
   useEffect(() => {
     showproduct();
   }, []);
+
+  //add to cart
+  const dispatch = useDispatch();
   return (
     <span>
       <div className="flex flex-col md:flex-row md:justify-center items-center gap-4 text-center">
@@ -38,26 +44,30 @@ const ShowProduct = () => {
                   src={data.images[0]}
                   alt="product image"
                 />
-                <div className="px-5 pb-5">
-                  <h5 className=" font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {data.title}
-                  </h5>
-
-                  <p className="tracking-tight text-gray-900 dark:text-white">
-                    {data.category.name}
-                  </p>
-                  <span className="flex gap-5 mt-5">
-                    <p className="text-2xl font-bold text-gray-900 dark:text-white">
-                      ${data.price}
-                    </p>
-                    <Link to="/cart">
-                      <button className=" border-1 px-6 py-2 rounded-lg  bg-gradient-to-r from-amber-500 to-amber-800 text-white transition">
-                        Add to Cart
-                      </button>
-                    </Link>
-                  </span>
-                </div>
               </Link>
+              <div className="px-5 pb-5">
+                <h5 className=" font-semibold tracking-tight text-gray-900 dark:text-white">
+                  {data.title}
+                </h5>
+
+                <p className="tracking-tight text-gray-900 dark:text-white">
+                  {data.category.name}
+                </p>
+                <span className="flex gap-5 mt-5">
+                  <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                    ${data.price}
+                  </p>
+
+                  <Link to="/cart">
+                    <button
+                      onClick={() => dispatch(addToCart(data))}
+                      className=" border-1 px-6 py-2 rounded-lg  bg-gradient-to-r from-amber-500 to-amber-800 text-white transition"
+                    >
+                      Add to Cart
+                    </button>
+                  </Link>
+                </span>
+              </div>
             </div>
           );
         })}

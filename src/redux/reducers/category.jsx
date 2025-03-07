@@ -25,12 +25,6 @@ const categoryReducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
       };
-    // case "DELETE_PRODUCT_REQUEST":
-    //   return {
-    //     ...state,
-    //     data: null,
-    //     error: null,
-    //   };
     default:
       return state;
   }
