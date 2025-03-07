@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router";
 import { useParams } from "react-router";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../redux/actions/cart";
+
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState();
+
+  const dispatch = useDispatch();
+
+  // const handleAddToCart = (data) => {
+  //   if (data) {
+  //     dispatch(addToCart(data));
+  //   }
+  // };
 
   const productdetails = async () => {
     try {
@@ -60,11 +70,13 @@ const ProductDetails = () => {
 
         {/* Buttons  */}
         <div className="flex flex-col sm:flex-row gap-4 items-center mt-5">
-          <NavLink to="/cart">
-            <button className="w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-800 rounded-lg text-white transition hover:opacity-90">
-              Add to Cart
-            </button>
-          </NavLink>
+          <button
+            onClick={() => dispatch(addToCart(product))}
+            className="w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-800 rounded-lg text-white transition hover:opacity-90"
+          >
+            Add to Cart
+          </button>
+
           <button className="w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-800 rounded-lg text-white transition hover:opacity-90">
             Buy Now
           </button>

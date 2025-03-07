@@ -5,7 +5,7 @@ import { IoLocationOutline } from "react-icons/io5";
 
 const Footer = () => {
   return (
-    <footer className="w-full bottom-0 bg-white py-6 shadow-inner border-t border-gray-300">
+    <footer className="w-full h-28 bg-white py-6 shadow-inner border-t border-gray-300 fixed bottom-0 left-0 z-10">
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 text-gray-700 text-center sm:text-left">
         {/* Contact */}
         <div className="flex items-center gap-3 justify-center sm:justify-start hover:text-amber-800 transition">
