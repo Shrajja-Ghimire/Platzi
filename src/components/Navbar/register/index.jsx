@@ -35,25 +35,29 @@ const Register = () => {
   //to store value in local storage
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("user", JSON.stringify(formData)); //localstorage holds string only so we have to convert into string //to string json.stringyfy
-    navigate("/login");
 
+    // first validation
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
-
-    console.log("Registered User:", formData);
+    //localstorage holds string only so we have to convert into string  //to string json.stringyfy
+    localStorage.setItem("user", JSON.stringify(formData));
     setSuccessMessage("Registration successful!");
     setErrors({});
+    navigate("/login");
+
+    console.log("Registered User:", formData);
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="mb-50 bg-white p-6 rounded-lg shadow-md w-96">
         <h2 className=" text-2xl font-bold mb-4">Create An Account</h2>
+
         {successMessage && <p className="text-green-600">{successMessage}</p>}
+
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label className="block text-gray-700">Username</label>
