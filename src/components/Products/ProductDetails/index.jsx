@@ -31,7 +31,7 @@ const ProductDetails = () => {
   }, [id]);
 
   return (
-    <div className="mt-5 px-5 p-5 md:px-10 lg:px-20 flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-20 max-w-6xl mx-auto">
+    <div className=" mb-30 px-5 p-5 md:px-10 lg:px-20 flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-20 max-w-6xl mx-auto">
       {/* Image */}
       <span className="w-full md:w-1/2 flex flex-col items-center">
         <img
@@ -69,16 +69,12 @@ const ProductDetails = () => {
         </p>
 
         {/* Buttons  */}
-        <div className="flex flex-col sm:flex-row gap-4 items-center mt-5">
+        <div className="sm:flex-row gap-4 items-center mt-5">
           <button
             onClick={() => dispatch(addToCart(product))}
             className="w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-800 rounded-lg text-white transition hover:opacity-90"
           >
             Add to Cart
-          </button>
-
-          <button className="w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-800 rounded-lg text-white transition hover:opacity-90">
-            Buy Now
           </button>
         </div>
       </span>

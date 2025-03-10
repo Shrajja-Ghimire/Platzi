@@ -11,12 +11,14 @@ import Navbar from "./components/Navbar/index.jsx";
 import ProductDetails from "./components/Products/ProductDetails/index.jsx";
 import Cart from "./components/Navbar/cart/index.jsx";
 import Register from "./components/Navbar/register/index.jsx";
+import Login from "./components/Navbar/login/index.jsx";
 import CategoryDetails from "./components/Category/categorydetails/index.jsx";
 import Sidebar from "./components/Category/sidebar/index.jsx";
 import Footer from "./components/Contact/footer/index.jsx";
 //redux
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import ProtectedRoutes from "./components/Navbar/login/protected routes/index.jsx";
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
@@ -24,10 +26,14 @@ createRoot(document.getElementById("root")).render(
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="" element={<App />} />
+          <Route path="/" element={<App />} />
+
           <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/" element={<HeroSection />} />
+          <Route path="/" element={<ProtectedRoutes />}>
+            <Route path="/" element={<HeroSection />} />
+          </Route>
           <Route path="/product" element={<Products />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/sidebar" element={<Sidebar />} />

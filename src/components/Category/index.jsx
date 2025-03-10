@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
-import axios from "axios";
+// import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategoryRequest } from "../../redux/actions/category";
 
@@ -16,7 +16,7 @@ const Category = () => {
 
   return (
     <>
-      <h1 className="text-3xl font-extrabold text-center mt-10 text-gray-900">
+      <h1 className="text-2xl font-extrabold text-center mt-10 ">
         Shop by Category
       </h1>
       <div className="mt-10 mx-10 flex justify-evenly flex-wrap">

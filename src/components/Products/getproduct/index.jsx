@@ -32,7 +32,7 @@ const ProductList = () => {
   return (
     <div>
       <Searchbar className="w-screen" search={search} setSearch={setSearch} />
-      <div className="mt-5 flex justify-start gap-10 flex-wrap ">
+      <div className="mb-30 mt-5 flex justify-start gap-10 flex-wrap ">
         {isLoading ? (
           <h1>Loading....</h1>
         ) : (
