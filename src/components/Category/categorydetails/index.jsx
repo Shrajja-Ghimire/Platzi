@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import { Link } from "react-router";
-import { FaPlus } from "react-icons/fa";
 
 const CategoryDetails = () => {
   const { id } = useParams();
@@ -24,7 +23,7 @@ const CategoryDetails = () => {
 
   if (!category) return <p>Loading...</p>;
   return (
-    <div className="bg-amber-100  py-6 px-4 flex flex-wrap justify-center items-center">
+    <div className=" mb-20 bg-amber-100  py-6 px-4 flex flex-wrap justify-center items-center">
       {category.map((data) => {
         return (
           <Link
@@ -43,7 +42,7 @@ const CategoryDetails = () => {
 
               {/* Text */}
               <div className="p-4 text-center">
-                <div className="flex text-center justify-between items-center mb-2">
+                <div className="flex justify-between items-center mb-2">
                   {/* Price */}
                   <p className="text-xl  font-semibold text-amber-600">
                     ${data.price}
@@ -55,14 +54,6 @@ const CategoryDetails = () => {
                   {data.title}
                 </p>
               </div>
-              <Link to="/cart" className="group flex items-center space-x-2">
-                <div className="w-5 h-5 bg-amber-700 rounded-full flex items-center justify-center hover:bg-amber-800">
-                  <FaPlus className="text-white " />
-                </div>
-                <div className="hidden group-hover:block bg-amber-800 text-white px-2 py-1 rounded-md">
-                  Add to Cart
-                </div>
-              </Link>
             </div>
           </Link>
         );

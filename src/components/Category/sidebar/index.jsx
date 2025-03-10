@@ -20,7 +20,7 @@ const Sidebar = () => {
   }, []);
 
   return (
-    <div className="bg-gray-200 shadow-lg rounded-lg p-4 w-full max-w-[250px] md:w-60 lg:w-72 h-[400px] mx-auto md:mx-0">
+    <div className="hidden md:block bg-gray-200 shadow-lg rounded-lg p-4 w-full max-w-[250px] md:w-60 lg:w-72 h-[400px] mx-auto md:mx-0">
       <h2 className="text-lg font-bold text-gray-800 border-b pb-2">
         Categories
       </h2>

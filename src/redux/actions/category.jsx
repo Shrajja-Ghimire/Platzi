@@ -6,7 +6,7 @@ export const fetchCategoryRequest = () => ({
 });
 
 export const fetchCategorySuccess = (category) => ({
-  type: "FETCH_Category_SUCCESS",
+  type: "FETCH_CATEGORY_SUCCESS",
   payload: category,
 });
 

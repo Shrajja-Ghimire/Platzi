@@ -28,7 +28,7 @@ const ShowProduct = () => {
   const dispatch = useDispatch();
   return (
     <span>
-      <div className="flex flex-col md:flex-row md:justify-center items-center gap-4 text-center">
+      <div className="flex flex-col md:flex-row md:justify-center items-center gap-4 ">
         <p className="font-bold mt-5 text-2xl">Our Latest Product</p>
       </div>
       <div className="mt-10 ml-30 mr-30  flex justify-center gap-10 flex-wrap ">
