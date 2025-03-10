@@ -18,7 +18,7 @@ import Footer from "./components/Contact/footer/index.jsx";
 //redux
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import ProtectedRoutes from "./components/Navbar/login/protected routes/index.jsx";
+// import ProtectedRoutes from "./components/Navbar/login/protected routes/index.jsx";
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
@@ -31,9 +31,9 @@ createRoot(document.getElementById("root")).render(
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route element={<ProtectedRoutes />}>
+          {/* <Route element={<ProtectedRoutes />}>
             <Route path="/hero" element={<HeroSection />} />
-          </Route>
+          </Route> */}
           <Route path="/product" element={<Products />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/sidebar" element={<Sidebar />} />
